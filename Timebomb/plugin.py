@@ -87,7 +87,7 @@ class Timebomb(callbacks.Plugin):
             def detonate():
                 self.detonate(irc)
             schedule.addEvent(detonate, time.time() + self.detonateTime, '%s_bomb' % self.channel)
-            s = 'stuffs a bomb down %s\'s pants.  The timer is set for %s seconds!  There are %s wires.  They are: %s.' % (self.victim, self.detonateTime, len(wires), utils.str.commaAndify(wires))
+            s = 'stuffs a bomb down %s\'s pants.  The timer is set for %s seconds!  There are %s wires. Use !cut <wire colour> to defuse the bomb. They are: %s.' % (self.victim, self.detonateTime, len(wires), utils.str.commaAndify(wires))
             self.irc.queueMsg(ircmsgs.action(self.channel, s))
             if self.victim == irc.nick:
                 time.sleep(1)
